@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import {Home} from './components/Home';
+import {Interviews} from './components/Interviews';
+import {IndivPosition} from './components/IndivPosition';
+import {PositionDashboard} from './components/PositionDashboard';
+import {Start} from './components/Start';
+import {Company} from './components/Company';
+import {Join} from './components/Join';
+import {Create} from './components/Create';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/positions" component={PositionDashboard}/>
+        {/*uhohpuff*/}
+        <Route path="/individualposition" component={IndivPosition}/>
+        <Route path="/interviews" component={Interviews}/>
+        <Route path="/start" component={Start}/>
+        <Route path="/company" component={Company}/>
+        <Route path="/join" component={Join}/>
+        <Route path="/create" component={Create}/>
+      </Switch>
     </div>
   );
 }
